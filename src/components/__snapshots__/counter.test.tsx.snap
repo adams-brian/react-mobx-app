@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`counter renders as expected 1`] = `"<div class=\\"counter\\"><button type=\\"button\\" class=\\"close\\" aria-label=\\"Close\\"><span aria-hidden=\\"true\\">×</span></button><div><h1>123</h1></div><div><button><span class=\\"fa fa-plus\\"></span></button><button><span class=\\"fa fa-minus\\"></span></button><button><span class=\\"fa fa-refresh\\"></span></button></div></div>"`;
