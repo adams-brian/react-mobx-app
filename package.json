@@ -33,11 +33,17 @@
     "@types/sinon": "^5.0.1",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
+    "enzyme-to-json": "^3.3.4",
     "mobx-react-devtools": "^5.0.1",
     "sinon": "^6.0.1",
     "typescript": "^2.9.1"
   },
   "setupFiles": [
     "<rootDir>/src/setupTests.ts"
-  ]
+  ],
+  "jest": {
+    "snapshotSerializers": [
+      "enzyme-to-json/serializer"
+    ]
+  }
 }

@@ -2,7 +2,7 @@ import { inject, observer } from 'mobx-react';
 import * as React from 'react';
 import { RouteComponentProps } from 'react-router';
 import { Link } from 'react-router-dom';
-import { AppState } from '../store';
+import { AppState } from '../../store';
 import { UserListRow } from './userListRow';
 
 interface IUserListProps extends RouteComponentProps<{}> {

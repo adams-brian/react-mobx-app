@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
-import { AppState } from '../store';
+import { AppState } from '../../store';
 import { EditUser } from './editUser';
 import { loading } from './loading';
 import { UserList } from './userList';

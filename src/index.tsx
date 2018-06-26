@@ -5,10 +5,11 @@ import { BrowserRouter } from 'react-router-dom';
 import './index.css';
 import registerServiceWorker from './registerServiceWorker';
 
+import { Api } from './api';
 import { App } from './App';
 import { AppState } from './store';
 
-const appState = new AppState();
+const appState = new AppState(new Api());
 ReactDOM.render(
   <Provider appState={appState}>
     <BrowserRouter>

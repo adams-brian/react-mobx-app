@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`counters renders as expected 1`] = `
+<loading(Counters)
+  appState={
+    AppState {
+      "api": Object {
+        "createUser": [Function],
+        "deleteUser": [Function],
+        "loadCounters": [Function],
+        "loadUsers": [Function],
+        "saveCounters": [Function],
+        "updateUser": [Function],
+      },
+      "counters": Array [],
+      "users": Array [],
+    }
+  }
+/>
+`;

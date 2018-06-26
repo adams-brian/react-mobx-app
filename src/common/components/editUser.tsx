@@ -3,7 +3,7 @@ import * as React from 'react';
 import { RouteComponentProps } from 'react-router';
 import { Link } from 'react-router-dom';
 
-import { AppState, IUser } from '../store';
+import { AppState, IUser } from '../../store';
 
 interface IEditUserProps extends RouteComponentProps<{id: string}> {
   appState: AppState;

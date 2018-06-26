@@ -1,11 +1,8 @@
 import * as React from 'react';
-import { AppState } from '../store';
+import { AppState } from '../../store';
 import { Counter } from './counter';
-import { loading } from './loading';
 
-export const Counters = 
-loading<AppState>('appState', (appState) => appState.loadCounters())(
-class extends React.Component<{appState: AppState}> {
+export class Counters extends React.Component<{appState: AppState}> {
   public render() {
     return (
       <div className="counters-container">
@@ -40,4 +37,3 @@ class extends React.Component<{appState: AppState}> {
   private addCounter = () =>
     this.props.appState.addCounter();
 }
-);

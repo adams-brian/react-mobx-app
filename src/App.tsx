@@ -3,11 +3,11 @@ import * as React from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import './App.css';
 
-import { About } from './components/about';
-import { Counters } from './components/counters';
-import { Footer } from './components/footer';
-import { Nav } from './components/nav';
-import { Users } from './components/users';
+import { About } from './common/components/about';
+import { Footer } from './common/components/footer';
+import { Nav } from './common/components/nav';
+import { Users } from './common/components/users';
+import { Counters } from './counters/containers/counters';
 
 export class App extends React.Component {
   public render() {
