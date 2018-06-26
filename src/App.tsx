@@ -6,8 +6,8 @@ import './App.css';
 import { About } from './common/components/about';
 import { Footer } from './common/components/footer';
 import { Nav } from './common/components/nav';
-import { Users } from './common/components/users';
 import { Counters } from './counters/containers/counters';
+import { Users } from './users/containers/users';
 
 export class App extends React.Component {
   public render() {

@@ -2,18 +2,13 @@
 
 exports[`counters renders as expected 1`] = `
 <loading(Counters)
-  appState={
-    AppState {
+  countersState={
+    CountersState {
       "api": Object {
-        "createUser": [Function],
-        "deleteUser": [Function],
         "loadCounters": [Function],
-        "loadUsers": [Function],
         "saveCounters": [Function],
-        "updateUser": [Function],
       },
       "counters": Array [],
-      "users": Array [],
     }
   }
 />

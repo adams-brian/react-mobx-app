@@ -3,19 +3,19 @@ import * as React from 'react';
 import { RouteComponentProps } from 'react-router';
 import { Link } from 'react-router-dom';
 
-import { AppState, IUser } from '../../store';
+import { IUser, UsersState } from '../state';
 
 interface IEditUserProps extends RouteComponentProps<{id: string}> {
-  appState: AppState;
+  usersState: UsersState;
 }
 
 export const EditUser = 
-inject('appState')(
+inject('usersState')(
 observer(
 class extends React.Component<IEditUserProps, IUser> {
   constructor(props: IEditUserProps) {
     super(props);
-    this.state = this.props.appState.users.find(u => u._id === props.match.params.id) || 
+    this.state = this.props.usersState.users.find(u => u._id === props.match.params.id) || 
       { _id: '', firstname: '', lastname: '' } as IUser;
   }
 
@@ -78,10 +78,10 @@ class extends React.Component<IEditUserProps, IUser> {
   private submit = (e: React.FormEvent<HTMLButtonElement>) => {
     e.preventDefault();
     if (this.state._id && this.state._id.length > 0) {
-      this.props.appState.updateUser(this.state);
+      this.props.usersState.updateUser(this.state);
     }
     else {
-      this.props.appState.createUser(this.state);
+      this.props.usersState.createUser(this.state);
     }
     this.props.history.push('/users');
   }

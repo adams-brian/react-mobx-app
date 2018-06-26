@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { IUser } from '../../store';
+import { IUser } from '../state';
 
 interface IUserListRowProps {
   user: IUser;

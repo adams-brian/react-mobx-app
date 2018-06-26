@@ -5,13 +5,16 @@ import { BrowserRouter } from 'react-router-dom';
 import './index.css';
 import registerServiceWorker from './registerServiceWorker';
 
-import { Api } from './api';
 import { App } from './App';
-import { AppState } from './store';
+import { CountersApi } from './counters/api';
+import { CountersState } from './counters/state';
+import { UsersApi } from './users/api';
+import { UsersState } from './users/state';
 
-const appState = new AppState(new Api());
+const countersState = new CountersState(new CountersApi());
+const usersState = new UsersState(new UsersApi());
 ReactDOM.render(
-  <Provider appState={appState}>
+  <Provider countersState={countersState} usersState={usersState}>
     <BrowserRouter>
       <App />
     </BrowserRouter>

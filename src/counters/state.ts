@@ -1,23 +1,15 @@
 import { action, computed, observable } from 'mobx';
-import { generate } from 'shortid';
 
-import { IApi } from './api';
+import { ICountersApi } from './api';
 
-export interface IUser { 
-  _id: string;
-  firstname: string;
-  lastname: string;
-}
-
-export class AppState {
+export class CountersState {
   @observable public counters: number[] = [];
-  @observable public users: IUser[] = [];
 
   @computed get countersLength() {
     return this.counters.length;
   }
 
-  constructor(private api: IApi) { }
+  constructor(private api: ICountersApi) { }
 
   @action public increment(index: number) {
     this.counters[index]++;
@@ -43,25 +35,5 @@ export class AppState {
   @action public async loadCounters(): Promise<void> {
     this.counters = [];
     this.counters = await this.api.loadCounters();
-  }
-
-  @action public deleteUser(id: string) {
-    this.users = this.users.filter(user => user._id !== id);
-    this.api.deleteUser(id);
-  }
-
-  @action public async loadUsers(): Promise<void> {
-    this.users = await this.api.loadUsers();
-  }
-
-  @action public async createUser(user: IUser) {
-    user._id = generate();
-    this.users.push(user);
-    this.api.createUser(user);
-  }
-
-  @action public updateUser(user: IUser) {
-    this.users.splice(this.users.findIndex(u => u._id === user._id), 1, user);
-    this.api.updateUser(user);
   }
 }
