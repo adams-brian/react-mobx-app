@@ -24,9 +24,10 @@ export class UsersState {
   }
 
   @action public async createUser(user: IUser) {
-    user._id = generate();
-    this.users.push(user);
-    this.api.createUser(user);
+    const newUser = Object.assign({}, user);
+    newUser._id = generate();
+    this.users.push(newUser);
+    this.api.createUser(newUser);
   }
 
   @action public updateUser(user: IUser) {

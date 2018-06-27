@@ -20,7 +20,7 @@ describe("counters", () => {
     const component = shallow(<Counters countersState={countersState} />);
     expect(component).toMatchSnapshot();
   });
-  it('calls appState.loadCounters()', () => {
+  it('calls loadCounters', () => {
     expect((countersState.loadCounters as sinon.SinonSpy).called).toBe(false);
     mount(<Counters countersState={countersState} />);
     expect((countersState.loadCounters as sinon.SinonSpy).calledOnce).toBe(true);

@@ -5,9 +5,9 @@ import * as sinon from 'sinon';
 import { CountersState } from '../state';
 import { Counters } from './counters';
 
-let countersState: CountersState;
-
 type propFunction = (index: number) => void;
+
+let countersState: CountersState;
 
 beforeEach(() => {
   countersState = new CountersState({

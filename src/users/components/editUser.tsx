@@ -9,10 +9,7 @@ interface IEditUserProps extends RouteComponentProps<{id: string}> {
   usersState: UsersState;
 }
 
-export const EditUser = 
-inject('usersState')(
-observer(
-class extends React.Component<IEditUserProps, IUser> {
+export class EditUserUnwrapped extends React.Component<IEditUserProps, IUser> {
   constructor(props: IEditUserProps) {
     super(props);
     this.state = this.props.usersState.users.find(u => u._id === props.match.params.id) || 
@@ -86,4 +83,9 @@ class extends React.Component<IEditUserProps, IUser> {
     this.props.history.push('/users');
   }
 }
+
+export const EditUser = 
+inject('usersState')(
+observer(
+  EditUserUnwrapped
 ));

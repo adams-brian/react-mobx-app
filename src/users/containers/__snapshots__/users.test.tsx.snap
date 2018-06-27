@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`users renders as expected 1`] = `
+<loading(Users)
+  usersState={
+    UsersState {
+      "api": Object {
+        "createUser": [Function],
+        "deleteUser": [Function],
+        "loadUsers": [Function],
+        "updateUser": [Function],
+      },
+      "users": Array [],
+    }
+  }
+/>
+`;
