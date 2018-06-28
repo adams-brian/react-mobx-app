@@ -2,8 +2,8 @@ import { shallow } from 'enzyme';
 import * as React from 'react';
 import * as sinon from 'sinon';
 
-import { CountersState } from '../state';
-import { Counters } from './counters';
+import CountersState from '../state';
+import Counters from './counters';
 
 type propFunction = (index: number) => void;
 

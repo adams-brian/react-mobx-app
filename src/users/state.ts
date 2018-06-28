@@ -9,7 +9,7 @@ export interface IUser {
   lastname: string;
 }
 
-export class UsersState {
+export default class UsersState {
   @observable public users: IUser[] = [];
 
   constructor(private api: IUsersApi) { }

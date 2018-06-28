@@ -3,8 +3,8 @@ import { createLocation, createMemoryHistory, Location, MemoryHistory } from 'hi
 import * as React from 'react';
 import * as sinon from 'sinon';
 
-import { UsersState } from '../state';
-import { EditUserUnwrapped } from './editUser';
+import UsersState from '../state';
+import { EditUser } from './editUser';
 
 interface IMatch {
   params: {id: string};
@@ -63,7 +63,7 @@ describe("editUser", () => {
       }
     
       element = (
-        <EditUserUnwrapped
+        <EditUser
           history={history}
           location={location}
           match={match}
@@ -103,7 +103,7 @@ describe("editUser", () => {
       }
     
       element = (
-        <EditUserUnwrapped
+        <EditUser
           history={history}
           location={location}
           match={match}

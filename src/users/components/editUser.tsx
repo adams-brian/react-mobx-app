@@ -3,13 +3,13 @@ import * as React from 'react';
 import { RouteComponentProps } from 'react-router';
 import { Link } from 'react-router-dom';
 
-import { IUser, UsersState } from '../state';
+import UsersState, { IUser } from '../state';
 
 interface IEditUserProps extends RouteComponentProps<{id: string}> {
   usersState: UsersState;
 }
 
-export class EditUserUnwrapped extends React.Component<IEditUserProps, IUser> {
+export class EditUser extends React.Component<IEditUserProps, IUser> {
   constructor(props: IEditUserProps) {
     super(props);
     this.state = this.props.usersState.users.find(u => u._id === props.match.params.id) || 
@@ -84,8 +84,6 @@ export class EditUserUnwrapped extends React.Component<IEditUserProps, IUser> {
   }
 }
 
-export const EditUser = 
-inject('usersState')(
-observer(
-  EditUserUnwrapped
-));
+export default inject('usersState')(
+  observer(EditUser)
+);

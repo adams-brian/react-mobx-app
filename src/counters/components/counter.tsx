@@ -9,7 +9,7 @@ interface ICounterProps {
   remove: (index: number) => void;
 }
 
-export class Counter extends React.Component<ICounterProps> {
+export default class Counter extends React.Component<ICounterProps> {
   
   public render() { 
     return (

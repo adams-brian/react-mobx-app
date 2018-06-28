@@ -3,8 +3,8 @@ import * as React from 'react';
 import { MemoryRouter } from 'react-router';
 import * as sinon from 'sinon';
 
-import { UsersState } from '../state';
-import { Users } from './users';
+import UsersState from '../state';
+import Users from './users';
 
 let usersState: UsersState;
 

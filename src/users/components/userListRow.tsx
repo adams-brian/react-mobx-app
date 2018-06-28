@@ -7,7 +7,7 @@ interface IUserListRowProps {
   deleteUser: (id: string) => void;
 }
 
-export class UserListRow extends React.Component<IUserListRowProps> {
+export default class UserListRow extends React.Component<IUserListRowProps> {
   public render() {
     return (
       <tr onClick={this.editUser}>

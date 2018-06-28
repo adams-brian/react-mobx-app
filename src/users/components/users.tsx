@@ -1,11 +1,11 @@
 import * as React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
-import { UsersState } from '../state';
-import { EditUser } from './editUser';
-import { UserList } from './userList';
+import UsersState from '../state';
+import EditUser from './editUser';
+import UserList from './userList';
 
-export class Users extends React.Component<{usersState: UsersState}> {
+export default class Users extends React.Component<{usersState: UsersState}> {
   public render() {
     return (
       <Switch>

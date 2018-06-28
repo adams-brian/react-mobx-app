@@ -7,7 +7,7 @@ export interface IUsersApi {
   deleteUser: (id: string) => void;
 }
 
-export class UsersApi implements IUsersApi {
+export default class UsersApi implements IUsersApi {
 
   public deleteUser(id: string) {
     fetch('http://localhost:4000/users/' + id, {

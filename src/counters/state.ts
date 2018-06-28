@@ -2,7 +2,7 @@ import { action, computed, observable } from 'mobx';
 
 import { ICountersApi } from './api';
 
-export class CountersState {
+export default class CountersState {
   @observable public counters: number[] = [];
 
   @computed get countersLength() {

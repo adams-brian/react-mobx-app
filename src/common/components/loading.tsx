@@ -8,7 +8,7 @@ interface IState {
   timeoutFired: boolean;
 }
 
-export const loading = <TState extends {}>(store: string, load: (state: TState) => Promise<void>) =>
+export default <TState extends {}>(store: string, load: (state: TState) => Promise<void>) =>
   <TProps extends {}>(Component: React.ComponentType<TProps>) => {
 
     const ObserverComponent = observer(Component);

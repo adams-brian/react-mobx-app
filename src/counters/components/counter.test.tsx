@@ -2,7 +2,7 @@ import { shallow } from 'enzyme';
 import * as React from 'react';
 import * as sinon from 'sinon';
 
-import { Counter } from './counter';
+import Counter from './counter';
 
 const counter = 123;
 const index = 456;

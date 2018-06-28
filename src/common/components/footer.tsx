@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-export const Footer = () => (
+export default () => (
   <footer className="footer">
     <div className="container">
       <span>Built with React and MobX</span>

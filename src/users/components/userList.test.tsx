@@ -3,8 +3,8 @@ import { createLocation, createMemoryHistory, Location, MemoryHistory } from 'hi
 import * as React from 'react';
 import * as sinon from 'sinon';
 
-import { UsersState } from '../state';
-import { UserListUnwrapped } from './userList';
+import UsersState from '../state';
+import { UserList } from './userList';
 
 type propFunction = (id: string) => void;
 
@@ -52,7 +52,7 @@ beforeEach(() => {
   sinon.spy(usersState, 'deleteUser');
   
   element = (
-    <UserListUnwrapped
+    <UserList
       history={history}
       location={location}
       match={match}

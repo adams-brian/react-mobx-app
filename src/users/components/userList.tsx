@@ -2,14 +2,15 @@ import { inject, observer } from 'mobx-react';
 import * as React from 'react';
 import { RouteComponentProps } from 'react-router';
 import { Link } from 'react-router-dom';
-import { UsersState } from '../state';
-import { UserListRow } from './userListRow';
+
+import UsersState from '../state';
+import UserListRow from './userListRow';
 
 interface IUserListProps extends RouteComponentProps<{}> {
   usersState: UsersState;
 }
 
-export class UserListUnwrapped extends React.Component<IUserListProps> {
+export class UserList extends React.Component<IUserListProps> {
   public render() {
     return (
       <div className="users-container">
@@ -42,8 +43,8 @@ export class UserListUnwrapped extends React.Component<IUserListProps> {
   }
 }
 
-export const UserList = 
-inject('usersState')(
-observer(
-  UserListUnwrapped
-));
+export default inject('usersState')(
+  observer(
+    UserList
+  )
+);

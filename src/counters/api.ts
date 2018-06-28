@@ -5,7 +5,7 @@ export interface ICountersApi {
   saveCounters: (counters: number[]) => void;
 }
 
-export class CountersApi implements ICountersApi {
+export default class CountersApi implements ICountersApi {
 
   public saveCounters: (counters: number[]) => void;
 

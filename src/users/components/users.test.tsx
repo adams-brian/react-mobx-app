@@ -2,10 +2,10 @@ import { shallow } from 'enzyme';
 import * as React from 'react';
 import * as sinon from 'sinon';
 
-import { UsersState } from '../state';
-import { EditUser } from './editUser';
-import { UserList } from './userList';
-import { Users } from './users';
+import UsersState from '../state';
+import EditUser from './editUser';
+import UserList from './userList';
+import Users from './users';
 
 let usersState: UsersState;
 

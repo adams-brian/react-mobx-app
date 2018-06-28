@@ -1,8 +1,8 @@
 import * as React from 'react';
-import { CountersState } from '../state';
-import { Counter } from './counter';
+import CountersState from '../state';
+import Counter from './counter';
 
-export class Counters extends React.Component<{countersState: CountersState}> {
+export default class Counters extends React.Component<{countersState: CountersState}> {
   public render() {
     return (
       <div className="counters-container">

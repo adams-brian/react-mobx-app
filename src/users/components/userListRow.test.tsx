@@ -3,7 +3,7 @@ import * as React from 'react';
 import * as sinon from 'sinon';
 
 import { IUser } from '../state';
-import { UserListRow } from './userListRow';
+import UserListRow from './userListRow';
 
 let user: IUser;
 let editUser: sinon.SinonSpy;

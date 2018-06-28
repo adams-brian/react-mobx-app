@@ -3,13 +3,13 @@ import * as React from 'react';
 import { Redirect, Route, Switch } from 'react-router-dom';
 import './App.css';
 
-import { About } from './common/components/about';
-import { Footer } from './common/components/footer';
-import { Nav } from './common/components/nav';
-import { Counters } from './counters/containers/counters';
-import { Users } from './users/containers/users';
+import About from './common/components/about';
+import Footer from './common/components/footer';
+import Nav from './common/components/nav';
+import Counters from './counters/containers/counters';
+import Users from './users/containers/users';
 
-export class App extends React.Component {
+export default class App extends React.Component {
   public render() {
     return (
       <div className="App d-flex flex-column">
