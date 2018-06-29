@@ -1,4 +1,4 @@
-import { action, observable } from 'mobx';
+import { action, IObservableArray, observable } from 'mobx';
 import { generate } from 'shortid';
 
 import { IUsersApi } from './api';
@@ -10,17 +10,17 @@ export interface IUser {
 }
 
 export default class UsersState {
-  @observable public users: IUser[] = [];
+  public users: IObservableArray<IUser> = observable.array([]);
 
   constructor(private api: IUsersApi) { }
 
   @action public deleteUser(id: string) {
-    this.users = this.users.filter(user => user._id !== id);
+    this.users.replace(this.users.filter(user => user._id !== id));
     this.api.deleteUser(id);
   }
 
   @action public async loadUsers(): Promise<void> {
-    this.users = await this.api.loadUsers();
+    this.users.replace(await this.api.loadUsers());
   }
 
   @action public async createUser(user: IUser) {

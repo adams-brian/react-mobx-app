@@ -12,7 +12,7 @@ let countersState: CountersState;
 beforeEach(() => {
   countersState = new CountersState({
     loadCounters: sinon.fake.resolves([5,1,4,2,3]),
-    saveCounters: sinon.fake(),
+    saveCounters: sinon.fake()
   });
   sinon.spy(countersState, 'increment');
   sinon.spy(countersState, 'decrement');

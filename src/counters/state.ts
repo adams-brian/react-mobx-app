@@ -1,9 +1,9 @@
-import { action, computed, observable } from 'mobx';
+import { action, computed, IObservableArray, observable } from 'mobx';
 
 import { ICountersApi } from './api';
 
 export default class CountersState {
-  @observable public counters: number[] = [];
+  public counters: IObservableArray<number> = observable.array([]);
 
   @computed get countersLength() {
     return this.counters.length;
@@ -33,7 +33,6 @@ export default class CountersState {
   }
 
   @action public async loadCounters(): Promise<void> {
-    this.counters = [];
-    this.counters = await this.api.loadCounters();
+    this.counters.replace(await this.api.loadCounters());
   }
 }
