@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`editUser create user mode renders as expected 1`] = `
+exports[`EditUser create user mode renders as expected 1`] = `
 <div
   className="edit-user"
 >
@@ -73,7 +73,7 @@ exports[`editUser create user mode renders as expected 1`] = `
 </div>
 `;
 
-exports[`editUser edit user mode renders as expected 1`] = `
+exports[`EditUser edit user mode renders as expected 1`] = `
 <div
   className="edit-user"
 >

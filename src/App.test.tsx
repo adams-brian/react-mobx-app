@@ -1,22 +1,31 @@
 import { shallow } from 'enzyme';
 import * as React from 'react';
-// import { MemoryRouter } from 'react-router';
+
 import App from './App';
+import About from './common/components/about';
+import Counters from './counters/components/counters';
+import Users from './users/components/users';
 
 describe("App", () => {
-  it('renders without crashing', () => {
+
+  it('renders as expected', () => {
     const component = shallow(<App />);
-    expect(component).toHaveLength(1);
-    // const wrapper = mount(
-    //   <MemoryRouter initialEntries={[ '/random' ]}>
-    //     <App/>
-    //   </MemoryRouter>
-    // );
-    // expect(wrapper.find(LandingPage)).toHaveLength(0);
-
-
-    // const div = document.createElement('div');
-    // ReactDOM.render(<App />, div);
-    // ReactDOM.unmountComponentAtNode(div);
+    expect(component).toMatchSnapshot();
   });
+
+  it('routes /counters to Counters', () => {
+    const component = shallow(<App />);
+    expect(component.find('Route[path="/counters"]').first().prop('component')).toBe(Counters);
+  });
+
+  it('routes /users to Users', () => {
+    const component = shallow(<App />);
+    expect(component.find('Route[path="/users"]').first().prop('component')).toBe(Users);
+  });
+
+  it('routes /about to About', () => {
+    const component = shallow(<App />);
+    expect(component.find('Route[path="/about"]').first().prop('component')).toBe(About);
+  });
+  
 });

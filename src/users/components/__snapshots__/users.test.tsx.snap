@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`users renders as expected 1`] = `
+exports[`Users renders as expected 1`] = `
 <Switch>
   <Route
     component={[Function]}
@@ -17,4 +17,22 @@ exports[`users renders as expected 1`] = `
     path="/users/:id"
   />
 </Switch>
+`;
+
+exports[`WrappedUsers renders as expected 1`] = `
+<inject-loading(Users)-with-usersState>
+  <loading(Users)
+    usersState={
+      UsersState {
+        "api": Object {
+          "createUser": [Function],
+          "deleteUser": [Function],
+          "loadUsers": [Function],
+          "updateUser": [Function],
+        },
+        "users": Array [],
+      }
+    }
+  />
+</inject-loading(Users)-with-usersState>
 `;

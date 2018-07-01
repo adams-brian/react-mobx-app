@@ -85,5 +85,7 @@ export class EditUser extends React.Component<IEditUserProps, IUser> {
 }
 
 export default inject('usersState')(
-  observer(EditUser)
+  observer(
+    EditUser
+  )
 );

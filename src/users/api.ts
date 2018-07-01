@@ -21,7 +21,6 @@ export default class UsersApi implements IUsersApi {
   }
 
   public async loadUsers(): Promise<IUser[]> {
-    console.log('loading users');
     const response = await fetch('http://localhost:4000/users');
     const json = await response.json();
     return [...json.data];

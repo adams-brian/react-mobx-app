@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`userListRow renders as expected 1`] = `
+exports[`UserListRow renders as expected 1`] = `
 <tr
   onClick={[Function]}
 >

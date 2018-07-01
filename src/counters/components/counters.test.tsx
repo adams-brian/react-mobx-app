@@ -1,28 +1,30 @@
-import { shallow } from 'enzyme';
+import { mount, shallow } from 'enzyme';
+import { Provider } from 'mobx-react';
 import * as React from 'react';
 import * as sinon from 'sinon';
 
 import CountersState from '../state';
-import Counters from './counters';
+import WrappedCounters, { Counters } from './counters';
 
-type propFunction = (index: number) => void;
+describe("Counters", () => {
 
-let countersState: CountersState;
+  type propFunction = (index: number) => void;
 
-beforeEach(() => {
-  countersState = new CountersState({
-    loadCounters: sinon.fake.resolves([5,1,4,2,3]),
-    saveCounters: sinon.fake()
+  let countersState: CountersState;
+
+  beforeEach(() => {
+    countersState = new CountersState({
+      loadCounters: sinon.fake.resolves([5,1,4,2,3]),
+      saveCounters: sinon.fake()
+    });
+    sinon.spy(countersState, 'increment');
+    sinon.spy(countersState, 'decrement');
+    sinon.spy(countersState, 'reset');
+    sinon.spy(countersState, 'remove');
+    sinon.spy(countersState, 'addCounter');
+    return countersState.loadCounters();
   });
-  sinon.spy(countersState, 'increment');
-  sinon.spy(countersState, 'decrement');
-  sinon.spy(countersState, 'reset');
-  sinon.spy(countersState, 'remove');
-  sinon.spy(countersState, 'addCounter');
-  return countersState.loadCounters();
-});
 
-describe("counters", () => {
   it('renders as expected', () => {
     const component = shallow(<Counters countersState={countersState} />);
     expect(component).toMatchSnapshot();
@@ -60,5 +62,34 @@ describe("counters", () => {
     const index = 4;
     (component.find('Counter').at(index).prop('remove') as propFunction)(index);
     expect((countersState.remove as sinon.SinonSpy).calledOnceWithExactly(index)).toBe(true);
+  });
+});
+
+describe("WrappedCounters", () => {
+
+  let countersState: CountersState;
+  let element: JSX.Element;
+
+  beforeEach(() => {
+    countersState = new CountersState({
+      loadCounters: sinon.fake.resolves([]),
+      saveCounters: sinon.fake()
+    });
+    sinon.spy(countersState, 'loadCounters');
+    element = (
+      <Provider countersState={countersState}>
+        <WrappedCounters />
+      </Provider>
+    );
+  });
+
+  it('renders as expected', () => {
+    const component = mount(element);
+    expect(component.find('Provider').first().children()).toMatchSnapshot();
+  });
+  it('calls loadCounters', () => {
+    expect((countersState.loadCounters as sinon.SinonSpy).called).toBe(false);
+    mount(element);
+    expect((countersState.loadCounters as sinon.SinonSpy).calledOnce).toBe(true);
   });
 });

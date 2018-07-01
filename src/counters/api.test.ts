@@ -5,7 +5,7 @@ import CountersApi from './api';
 
 const counters = [5,1,4,2,3];
 
-describe('api', () => {
+describe('CountersApi', () => {
   
   let countersApi: CountersApi;
 
@@ -43,4 +43,5 @@ describe('api', () => {
     expect(fetchMock.done()).toBe(true);
     clock.restore();
   });
+  
 });

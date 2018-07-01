@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`counters renders as expected 1`] = `
+exports[`Counters renders as expected 1`] = `
 <div
   className="counters-container"
 >
@@ -69,4 +69,20 @@ exports[`counters renders as expected 1`] = `
     </div>
   </div>
 </div>
+`;
+
+exports[`WrappedCounters renders as expected 1`] = `
+<inject-loading(Counters)-with-countersState>
+  <loading(Counters)
+    countersState={
+      CountersState {
+        "api": Object {
+          "loadCounters": [Function],
+          "saveCounters": [Function],
+        },
+        "counters": Array [],
+      }
+    }
+  />
+</inject-loading(Counters)-with-countersState>
 `;

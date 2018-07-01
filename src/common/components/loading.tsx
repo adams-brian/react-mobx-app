@@ -8,17 +8,17 @@ interface IState {
   timeoutFired: boolean;
 }
 
-export default <TState extends {}>(store: string, load: (state: TState) => Promise<void>) =>
+export default <TState extends {}, TExternalProps extends {}>(storeName: string, load: (state: TState) => Promise<void>) =>
   <TProps extends {}>(Component: React.ComponentType<TProps>) => {
 
     const ObserverComponent = observer(Component);
-
-    return inject(store)(
-      class extends React.Component<TProps, IState> {
+    
+    return inject(storeName)(
+      class extends React.Component<TExternalProps, IState> {
         public static displayName = `loading(${Component.displayName || Component.name})`;
         private timeout: NodeJS.Timer;
 
-        constructor(props: TProps) {
+        constructor(props: TExternalProps) {
             super(props);
             this.state = {
                 error: false,
@@ -30,7 +30,7 @@ export default <TState extends {}>(store: string, load: (state: TState) => Promi
 
         public componentDidMount() {
           this.timeout = setTimeout(() => this.setState({timeoutFired: true}), 500);
-          load(this.props[store])
+          load(this.props[storeName])
             .then(() => this.setState({loaded: true}))
             .catch((err) => this.setState({error: true, message: err.message}));
         }
@@ -47,7 +47,7 @@ export default <TState extends {}>(store: string, load: (state: TState) => Promi
           }
           else if (this.state.error) {
             return (
-              <div>Error {this.state.message}</div>
+              <div>Error: {this.state.message}</div>
             )
           }
           else if (this.state.timeoutFired) {

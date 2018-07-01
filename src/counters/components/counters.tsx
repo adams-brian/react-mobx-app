@@ -1,8 +1,9 @@
 import * as React from 'react';
+import loading from '../../common/components/loading';
 import CountersState from '../state';
 import Counter from './counter';
 
-export default class Counters extends React.Component<{countersState: CountersState}> {
+export class Counters extends React.Component<{countersState: CountersState}> {
   public render() {
     return (
       <div className="counters-container">
@@ -37,3 +38,7 @@ export default class Counters extends React.Component<{countersState: CountersSt
   private addCounter = () =>
     this.props.countersState.addCounter();
 }
+
+export default loading<CountersState, {}>('countersState', (countersState) => countersState.loadCounters())(
+  Counters
+);

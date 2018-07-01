@@ -15,7 +15,7 @@ const users = [
   }
 ];
 
-describe('api', () => {
+describe('UsersApi', () => {
   
   let usersApi: UsersApi;
 
@@ -61,4 +61,5 @@ describe('api', () => {
     usersApi.updateUser(users[0]);
     expect(fetchMock.done()).toBe(true);
   });
+  
 });

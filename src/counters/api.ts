@@ -20,8 +20,6 @@ export default class CountersApi implements ICountersApi {
   }
 
   private doSave(counters: number[]) {
-    console.log('saving counters: ' + JSON.stringify({counters}));
-    
     fetch('http://localhost:4000/counters', {
       body: JSON.stringify({counters}),
       headers: {

@@ -1,0 +1,45 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`loading renders as expected 1`] = `
+<Provider
+  theState={
+    SimpleState {
+      "delay": 0,
+      "message": "",
+      "shouldReject": false,
+    }
+  }
+>
+  <inject-loading(SimpleComponent)-with-theState>
+    <loading(SimpleComponent)
+      theState={
+        SimpleState {
+          "delay": 0,
+          "message": "",
+          "shouldReject": false,
+        }
+      }
+    />
+  </inject-loading(SimpleComponent)-with-theState>
+</Provider>
+`;
+
+exports[`loading should make the wrapped component an observer 1`] = `"<div>message: updated</div>"`;
+
+exports[`loading should render null for 500ms, then loading until the promise resolves for load times > 500ms 1`] = `null`;
+
+exports[`loading should render null for 500ms, then loading until the promise resolves for load times > 500ms 2`] = `"<div>Loading...</div>"`;
+
+exports[`loading should render null for 500ms, then loading until the promise resolves for load times > 500ms 3`] = `"<div>message: loaded</div>"`;
+
+exports[`loading should render null until the promise resolves for load times < 500ms 1`] = `null`;
+
+exports[`loading should render null until the promise resolves for load times < 500ms 2`] = `"<div>message: loaded</div>"`;
+
+exports[`loading should render null until the promise resolves for load times < 500ms 3`] = `"<div>message: loaded</div>"`;
+
+exports[`loading should render the error message if the promise is rejected 1`] = `null`;
+
+exports[`loading should render the error message if the promise is rejected 2`] = `"<div>Loading...</div>"`;
+
+exports[`loading should render the error message if the promise is rejected 3`] = `"<div>Error: error message</div>"`;
