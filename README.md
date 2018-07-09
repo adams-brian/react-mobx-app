@@ -1,4 +1,4 @@
-# express-mongo-api
+# react-mobx-app
 
 This is a simple app to explore patterns and best practices using React and MobX.
 
