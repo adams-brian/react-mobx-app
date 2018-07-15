@@ -47,6 +47,6 @@ export default class UsersApi implements IUsersApi {
       },
       method: 'post'
     })
-    .catch((err) => console.log('failed to delete user: ', err));
+    .catch((err) => console.log('failed to update user: ', err));
   }
 }

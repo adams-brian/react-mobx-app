@@ -31,7 +31,7 @@ describe("UserList", () => {
       isExact: true,
       params: { id: '123' },
       path: '/a/location',
-      url: 'blahblahblah'
+      url: 'urlbase/a/location'
     }
 
     usersState = new UsersState({

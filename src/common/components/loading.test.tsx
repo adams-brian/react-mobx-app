@@ -62,10 +62,9 @@ describe("loading", () => {
   it('should render null until the promise resolves for load times < 500ms', () => {
     state.delay = 200;
     const component = mount(element);
-    return new Promise((resolve) => {
+    return Promise.resolve().then(() => {
       expect(component.html()).toMatchSnapshot();
       clock.tick(state.delay);
-      resolve();
     }).then(() => {
       expect(component.html()).toMatchSnapshot();
       clock.tick(5000);
@@ -77,10 +76,9 @@ describe("loading", () => {
   it('should render null for 500ms, then loading until the promise resolves for load times > 500ms', () => {
     state.delay = 2000;
     const component = mount(element);
-    return new Promise((resolve) => {
+    return Promise.resolve().then(() => {
       expect(component.html()).toMatchSnapshot();
       clock.tick(500);
-      resolve();
     }).then(() => {
       expect(component.html()).toMatchSnapshot();
       clock.tick(state.delay - 500);
@@ -94,10 +92,9 @@ describe("loading", () => {
     state.shouldReject = true;
     const component = mount(element);
     // use promises to allow callbacks in loading to run between ticks
-    return new Promise((resolve) => {
+    return Promise.resolve().then(() => {
       expect(component.html()).toMatchSnapshot();
       clock.tick(500);
-      resolve();
     }).then(() => {
       expect(component.html()).toMatchSnapshot();
       clock.tick(state.delay - 500);
@@ -111,9 +108,8 @@ describe("loading", () => {
 
   it('should inject the specified store', () => {
     const component = mount(element);
-    return new Promise((resolve) => {
+    return Promise.resolve().then(() => {
       clock.tick(0);
-      resolve();
     }).then(() => {
       component.update();
       expect(component.find('SimpleComponent').first().prop('theState')).toBe(state);
@@ -122,9 +118,8 @@ describe("loading", () => {
 
   it('should make the wrapped component an observer', () => {
     const component = mount(element);
-    return new Promise((resolve) => {
+    return Promise.resolve().then(() => {
       clock.tick(0);
-      resolve();
     }).then(() => {
       component.update();
       state.message = "updated";

@@ -29,12 +29,14 @@ describe("Counters", () => {
     const component = shallow(<Counters countersState={countersState} />);
     expect(component).toMatchSnapshot();
   });
+
   it('calls addCounter on the state', () => {
     const component = shallow(<Counters countersState={countersState} />);
     expect((countersState.addCounter as sinon.SinonSpy).called).toBe(false);
     component.find('.add-counter').simulate('click');
     expect((countersState.addCounter as sinon.SinonSpy).calledOnce).toBe(true);
   });
+
   it('calls increment on the state', () => {
     const component = shallow(<Counters countersState={countersState} />);
     expect((countersState.increment as sinon.SinonSpy).called).toBe(false);
@@ -42,6 +44,7 @@ describe("Counters", () => {
     (component.find('Counter').at(index).prop('increment') as propFunction)(index);
     expect((countersState.increment as sinon.SinonSpy).calledOnceWithExactly(index)).toBe(true);
   });
+
   it('calls decrement on the state', () => {
     const component = shallow(<Counters countersState={countersState} />);
     expect((countersState.decrement as sinon.SinonSpy).called).toBe(false);
@@ -49,6 +52,7 @@ describe("Counters", () => {
     (component.find('Counter').at(index).prop('decrement') as propFunction)(index);
     expect((countersState.decrement as sinon.SinonSpy).calledOnceWithExactly(index)).toBe(true);
   });
+
   it('calls reset on the state', () => {
     const component = shallow(<Counters countersState={countersState} />);
     expect((countersState.reset as sinon.SinonSpy).called).toBe(false);
@@ -56,6 +60,7 @@ describe("Counters", () => {
     (component.find('Counter').at(index).prop('reset') as propFunction)(index);
     expect((countersState.reset as sinon.SinonSpy).calledOnceWithExactly(index)).toBe(true);
   });
+
   it('calls remove on the state', () => {
     const component = shallow(<Counters countersState={countersState} />);
     expect((countersState.remove as sinon.SinonSpy).called).toBe(false);
@@ -63,6 +68,7 @@ describe("Counters", () => {
     (component.find('Counter').at(index).prop('remove') as propFunction)(index);
     expect((countersState.remove as sinon.SinonSpy).calledOnceWithExactly(index)).toBe(true);
   });
+
 });
 
 describe("WrappedCounters", () => {
@@ -87,9 +93,11 @@ describe("WrappedCounters", () => {
     const component = mount(element);
     expect(component.find('Provider').first().children()).toMatchSnapshot();
   });
+
   it('calls loadCounters', () => {
     expect((countersState.loadCounters as sinon.SinonSpy).called).toBe(false);
     mount(element);
     expect((countersState.loadCounters as sinon.SinonSpy).calledOnce).toBe(true);
   });
+
 });

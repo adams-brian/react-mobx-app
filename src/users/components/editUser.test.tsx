@@ -70,7 +70,7 @@ describe("EditUser", () => {
           staticContext={undefined}
           usersState={usersState}
         />
-      )
+      );
     });
 
     it('renders as expected', () => {
@@ -112,7 +112,7 @@ describe("EditUser", () => {
           staticContext={undefined}
           usersState={usersState}
         />
-      )
+      );
     });
 
     it('renders as expected', () => {
